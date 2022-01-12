@@ -3,6 +3,16 @@ import { createContext, useReducer } from "react";
 // 5. The reducer - this is used to update the state, based on the action
 const AppReducer = (state, action) => {
   switch (action.type) {
+    case "ADD_EXPENSE":
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+      };
+    case "DELETE_EXPENSE":
+      return {
+        ...state,
+        expenses: state.expenses.filter((item) => item.id !== action.payload),
+      };
     default:
       return state;
   }
@@ -14,6 +24,7 @@ const initialState = {
   expenses: [
     { id: 1, name: "shopping", cost: 50 },
     { id: 2, name: "holiday", cost: 200 },
+    { id: 3, name: "shopping", cost: 40 },
   ],
 };
 

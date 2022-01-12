@@ -3,14 +3,17 @@ import { AppContext } from "../context/AppContext";
 
 const Remaining = () => {
   const { budget, expenses } = useContext(AppContext);
-  const totalExpense = expenses
-    .map((expense) => expense.cost)
-    .reduce((cur, acc) => cur + acc);
-  const remaining = budget - totalExpense;
+  const totalExpenses = expenses.reduce(
+    (total, item) => (total = total + item.cost),
+    0
+  );
+  const remaining = budget - totalExpenses;
+
+  const alertType = totalExpenses > budget ? "alert-danger" : "alert-success";
 
   return (
-    <div className="alert alert-success">
-      <span className="text-nowrap">Remaining: &euro;{remaining}</span>
+    <div className={`alert ${alertType}`}>
+      <span className="text-nowrap">Remaining: &euro; {remaining}</span>
     </div>
   );
 };

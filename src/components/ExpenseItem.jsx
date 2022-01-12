@@ -1,6 +1,6 @@
-import { TiDelete } from "react-icons/ti";
 import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
+import { AiFillDelete } from "react-icons/ai";
 
 const ExpenseItem = ({ expense }) => {
   const { name, cost } = expense;
@@ -16,9 +16,9 @@ const ExpenseItem = ({ expense }) => {
   return (
     <li className="list-group-item d-flex justify-content-between align-items-center">
       {name}
-      <div>
+      <div className="right">
         <span className="badge badge-primary mr-3">&euro; {cost}</span>
-        <TiDelete size="1.25em" role="button" onClick={deleteHandler} />
+        <AiFillDelete size="1.25em" role="button" onClick={deleteHandler} />
       </div>
     </li>
   );

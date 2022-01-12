@@ -1,0 +1,7 @@
+.right > * {
+  fill: #f44336;
+}
+
+.right > *:hover {
+  fill: #d32f2f;
+}

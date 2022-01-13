@@ -9,7 +9,10 @@ const ExpenseTotal = () => {
   );
 
   return (
-    <div className="alert alert-info" style={{ height: "64px" }}>
+    <div
+      className="alert alert-info d-flex align-items-center"
+      style={{ height: "64px" }}
+    >
       <span className="text-nowrap">Spent: &euro; {totalExpenses}</span>
     </div>
   );
